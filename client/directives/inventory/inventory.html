@@ -1,0 +1,25 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text layout layout-align="center center">
+            <span class="md-headline">Inventory</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+           
+        <md-list>
+             <md-list-item class="md-2-line" ng-repeat="item in inventory.currentInventories">
+                <img ng-src={{item.image_url}} class="md-avatar" alt="pic" />
+                <div class="md-list-item-text">
+                    <h3 class='capitalize'>{{item.name+"s"}}</h3>
+                    <p>Quantity : {{item.quantity}}</p>
+                </div>
+                <a class="auc-btn" ng-click="inventory.auctionDialog($event,item)"><img ng-src="vendors/images/auction1.png" class="md-avatar" alt="" /></a>
+                 <md-divider ></md-divider>
+             </md-list-item>
+
+        </md-list>
+
+    </md-card-content>
+
+</md-card>
+

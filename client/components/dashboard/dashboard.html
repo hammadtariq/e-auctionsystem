@@ -1,0 +1,17 @@
+<md-content ng-if="dashboard.show" style="background: #F1F1F1">
+    <md-toolbar class="md-accent md-hue-2 header-bar" layout="row" layout-padding layout-align="space-between center">
+        <div>
+            <h3 class="md-title title-name">e - Auction</h3>
+        </div>
+        <player-stats></player-stats>
+    </md-toolbar>
+
+    <div layout="row">
+        <div flex="30">
+            <inventory></inventory>
+        </div>
+        <div flex>
+            <current-auction></current-auction>
+        </div>
+    </div>
+</md-content>

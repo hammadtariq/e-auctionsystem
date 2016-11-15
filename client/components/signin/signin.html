@@ -1,0 +1,32 @@
+<md-toolbar class="md-accent md-hue-2 header-bar">
+    <div class="md-toolbar-tools" layout-align="center center">
+        <h3 class="md-title title-name" >e - Auction {{login.name}}</h3>
+    </div>
+</md-toolbar>
+<div>
+    <md-content id="content" layout="row" layout-align="center center" style="margin-top: 10%;background: #F1F1F1">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Login</span>
+                </md-card-title-text>
+            </md-card-title>
+            <form name="userForm" novalidate ng-submit="login.onLogin()" layout="row" layout-align="center center">
+                <md-card-content>
+                    <md-input-container class="md-block">
+                        <label>Name</label>
+                        <input required name="name" ng-model="login.user.username">
+                        <div ng-messages="userForm.name.$error" ng-show="userForm.name.$touched">
+                            <div ng-message="required"> This Field is required.</div>
+                        </div>
+                    </md-input-container>
+                </md-card-content>
+                <md-card-actions>
+                    <div class="md-block">
+                        <md-button class="md-raised md-accent md-hue-2" type="submit" ng-disabled="userForm.name.$pristine">Enter</md-button>
+                    </div>
+                </md-card-actions>
+            </form>
+        </md-card>
+    </md-content>
+</div>

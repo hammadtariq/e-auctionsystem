@@ -1,0 +1,37 @@
+<md-dialog aria-label="Start Auction">
+    <form>
+        <md-toolbar class="md-accent md-hue-2 header-bar">
+            <div class="md-toolbar-tools">
+                <h2>Start Auction</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h3 class="capitalize"> {{getCurrentItem() ? currentItem.name : ''}}</h3>
+                <md-input-container class="md-block">
+                    <label>Quantity</label>
+                    <input ng-model="bidItem.quantity" type="number" required>
+                    <div ng-if="bidItem.quantity > currentItem.quantity" style="color: red">limit exceed</div>
+                    <div ng-if="bidItem.quantity < 1" style="color: red">should be greater than zero</div>
+                    <span flex></span>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Minimum bid value</label>
+                    <input ng-model="bidItem.bidValue" type="number" required>
+                    <div ng-if="bidItem.bidValue < 1" style="color: red">value should be greater than zero</div>
+                    <span flex></span>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button class="md-accent md-hue-2" ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button class="md-accent md-hue-2" ng-disabled="bidItem.quantity < 1 || bidItem.bidValue < 1 || bidItem.quantity > currentItem.quantity" ng-click="setAucObj(bidItem)" style="margin-right:20px;">
+                Start Auction
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

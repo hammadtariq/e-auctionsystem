@@ -1,0 +1,23 @@
+{
+  "name": "auctionsystem",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+   "install": {
+    "path": "client/libs"
+  },
+  "dependencies": {
+    "angular-material": "^1.0.7",
+    "angular-ui-router": "ui-router#^0.2.18",
+    "angular-socket-io": "^0.7.0"
+  }
+}

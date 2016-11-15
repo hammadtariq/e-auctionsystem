@@ -1,0 +1,62 @@
+<md-card style="text-align: center">
+    <md-card-title>
+        <md-card-title-text>
+            <h2 class="md-headline">Auction Status</h2>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <h3 ng-if="!auction.aucStarted" style="color: darkgreen">No auction at this moment</h3>
+        <md-divider></md-divider>
+        <md-whiteframe style="text-align: left;" ng-if="auction.aucStarted" class="md-whiteframe-4dp" layout
+                       layout-align="start center">
+
+            <div layout="row" style="padding: 50px;">
+                <div flex><img style="width: 80px;height: 60px;" ng-src={{auction.item.image_url}} class="md-avatar"
+                               alt="pic"/></div>
+            </div>
+            <div layout="column">
+                <div flex layout layout-align="center end">
+                    <h4 flex style="color: darkred"> Time Left : {{auction.countDown}} Seconds</h4>
+                </div>
+                <div flex style="text-align: left">
+                    <h4 class='capitalize'>Item Name: <span class="bid-item-info">{{auction.item.name}}</span></h4>
+                    <h4 class='capitalize'> Seller Name : <span
+                            class="bid-item-info">{{auction.item.seller_name}}</span></h4>
+                    <h4>Quantity : <span class="bid-item-info">{{auction.item.quantity}}</span></h4>
+                    <h4 ng-if="auction.bids_arr.length">Win Bid Value : <span class="bid-item-info">{{auction.bids_arr[0].placed_bid }}</span></h4>
+                    <h4 ng-if="!auction.bids_arr.length">Min Bid Value : <span class="bid-item-info">{{auction.item.bidValue}}</span></h4>
+                </div>
+            </div>
+        </md-whiteframe>
+
+        <div class="bid-section" ng-if="auction.bids_arr.length">
+            <md-content>
+                <md-list>
+                    <md-list-item class="md-2-line bid-item" ng-repeat="item in auction.bids_arr">
+                        <img ng-src="../../vendors/images/dobid.png" class="md-avatar bid-img" alt=""/>
+                        <div class="md-list-item-text">
+                            <h3>{{item.placed_bid}}</h3>
+                            <p class="capitalize">{{item.name}}</p>
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                </md-list>
+            </md-content>
+        </div>
+
+        <div layout layout-align="center center" ng-if="auction.canBid">
+            <md-input-container class="md-block">
+                <label>Place your bid here..</label>
+                <input required name="bid" ng-model="auction.bid_value">
+            </md-input-container>
+            <div class="md-block">
+                <md-button class="md-raised md-accent md-hue-2" type="button"
+                           ng-disabled="!(auction.bid_value >= auction.item.bidValue)" ng-click="auction.doBid()">Bid
+                </md-button>
+            </div>
+        </div>
+
+</md-card>
+
+
+

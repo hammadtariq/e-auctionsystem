@@ -1,0 +1,61 @@
+body {
+  /*padding: 50px;*/
+  background: #F1F1F1
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.capitalize{
+  text-transform: capitalize
+}
+
+.auc-btn{
+  cursor:pointer
+}
+
+.title-name:first-letter{
+  font-weight: 600;
+  font-size: 28px;
+  font-family: fantasy;
+  letter-spacing: 0.005em;
+}
+
+.title-name{
+  font-weight: 600;
+  font-size: large;
+  letter-spacing: 0.2em;
+  padding-left: 10px;
+}
+
+.header-bar{
+  padding: 0;
+  margin: 0;
+}
+
+.bid-section {
+  padding: 20px;
+  margin: 10px;
+  text-align: left;
+}
+
+.bid-item{
+}
+
+.bid-item:nth-child(odd) {
+  background: #f0f0f0;
+}
+
+.bid-item:nth-child(even) {
+  background: #ffffff;
+}
+
+.bid-img{
+  background: azure;
+}
+
+.bid-item-info{
+  font-weight: 400;
+}
